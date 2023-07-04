@@ -12,10 +12,6 @@ function App() {
     setPosts(data)
   }, [count, data])
 
-  useEffect(() => {
-    console.log({ count, data, posts })
-  }, [count, data, posts])
-
   if (isLoading) {
     return <div>Loading...</div>
   }
@@ -32,6 +28,7 @@ function App() {
           <p>{post.body}</p>
         </div>
       ))}
+      {posts?.length === 0 && <div>No posts</div>}
       <button onClick={() => setCount(count + 5)}>More +5</button>
       <button onClick={() => setCount(count - 5)}>Less -5</button>
     </div>
